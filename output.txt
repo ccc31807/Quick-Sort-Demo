@@ -1,0 +1,92 @@
+DEBUG is TRUE
+initial list is [4, 3, 7, 2, 9, 5, 99, -1]
+calling quick_sort([4, 3, 7, 2, 9, 5, 99, -1])
+    else branch, list is [4, 3, 7, 2, 9, 5, 99, -1]
+       for: i = 4 and pivot = 2, i > pivot, more = [4]
+       for: i = 3 and pivot = 2, i > pivot, more = [4, 3]
+       for: i = 7 and pivot = 2, i > pivot, more = [4, 3, 7]
+       for: i = 2 and pivot = 2, i == pivot, pivotList = [2]
+       for: i = 9 and pivot = 2, i > pivot, more = [4, 3, 7, 9]
+       for: i = 5 and pivot = 2, i > pivot, more = [4, 3, 7, 9, 5]
+       for: i = 99 and pivot = 2, i > pivot, more = [4, 3, 7, 9, 5, 99]
+       for: i = -1 and pivot = 2, i < pivot, less = [-1]
+calling quick_sort([-1])
+    DONE if list length <= 1, returning [-1]
+calling quick_sort([4, 3, 7, 9, 5, 99])
+    else branch, list is [4, 3, 7, 9, 5, 99]
+       for: i = 4 and pivot = 7, i < pivot, less = [4]
+       for: i = 3 and pivot = 7, i < pivot, less = [4, 3]
+       for: i = 7 and pivot = 7, i == pivot, pivotList = [7]
+       for: i = 9 and pivot = 7, i > pivot, more = [9]
+       for: i = 5 and pivot = 7, i < pivot, less = [4, 3, 5]
+       for: i = 99 and pivot = 7, i > pivot, more = [9, 99]
+calling quick_sort([4, 3, 5])
+    else branch, list is [4, 3, 5]
+       for: i = 4 and pivot = 3, i > pivot, more = [4]
+       for: i = 3 and pivot = 3, i == pivot, pivotList = [3]
+       for: i = 5 and pivot = 3, i > pivot, more = [4, 5]
+calling quick_sort([])
+    DONE if list length <= 1, returning []
+calling quick_sort([4, 5])
+    else branch, list is [4, 5]
+       for: i = 4 and pivot = 4, i == pivot, pivotList = [4]
+       for: i = 5 and pivot = 4, i > pivot, more = [5]
+calling quick_sort([])
+    DONE if list length <= 1, returning []
+calling quick_sort([5])
+    DONE if list length <= 1, returning [5]
+<<<returning [] + [4] + [5]
+<<<returning [] + [3] + [4, 5]
+calling quick_sort([9, 99])
+    else branch, list is [9, 99]
+       for: i = 9 and pivot = 9, i == pivot, pivotList = [9]
+       for: i = 99 and pivot = 9, i > pivot, more = [99]
+calling quick_sort([])
+    DONE if list length <= 1, returning []
+calling quick_sort([99])
+    DONE if list length <= 1, returning [99]
+<<<returning [] + [9] + [99]
+<<<returning [3, 4, 5] + [7] + [9, 99]
+<<<returning [-1] + [2] + [3, 4, 5, 7, 9, 99]
+end list is [-1, 2, 3, 4, 5, 7, 9, 99]
+
+initial list is ['q', 'w', 'e', 'r', 't', 'y']
+calling quick_sort(['q', 'w', 'e', 'r', 't', 'y'])
+    else branch, list is ['q', 'w', 'e', 'r', 't', 'y']
+       for: i = q and pivot = e, i > pivot, more = ['q']
+       for: i = w and pivot = e, i > pivot, more = ['q', 'w']
+       for: i = e and pivot = e, i == pivot, pivotList = ['e']
+       for: i = r and pivot = e, i > pivot, more = ['q', 'w', 'r']
+       for: i = t and pivot = e, i > pivot, more = ['q', 'w', 'r', 't']
+       for: i = y and pivot = e, i > pivot, more = ['q', 'w', 'r', 't', 'y']
+calling quick_sort([])
+    DONE if list length <= 1, returning []
+calling quick_sort(['q', 'w', 'r', 't', 'y'])
+    else branch, list is ['q', 'w', 'r', 't', 'y']
+       for: i = q and pivot = r, i < pivot, less = ['q']
+       for: i = w and pivot = r, i > pivot, more = ['w']
+       for: i = r and pivot = r, i == pivot, pivotList = ['r']
+       for: i = t and pivot = r, i > pivot, more = ['w', 't']
+       for: i = y and pivot = r, i > pivot, more = ['w', 't', 'y']
+calling quick_sort(['q'])
+    DONE if list length <= 1, returning ['q']
+calling quick_sort(['w', 't', 'y'])
+    else branch, list is ['w', 't', 'y']
+       for: i = w and pivot = t, i > pivot, more = ['w']
+       for: i = t and pivot = t, i == pivot, pivotList = ['t']
+       for: i = y and pivot = t, i > pivot, more = ['w', 'y']
+calling quick_sort([])
+    DONE if list length <= 1, returning []
+calling quick_sort(['w', 'y'])
+    else branch, list is ['w', 'y']
+       for: i = w and pivot = w, i == pivot, pivotList = ['w']
+       for: i = y and pivot = w, i > pivot, more = ['y']
+calling quick_sort([])
+    DONE if list length <= 1, returning []
+calling quick_sort(['y'])
+    DONE if list length <= 1, returning ['y']
+<<<returning [] + ['w'] + ['y']
+<<<returning [] + ['t'] + ['w', 'y']
+<<<returning ['q'] + ['r'] + ['t', 'w', 'y']
+<<<returning [] + ['e'] + ['q', 'r', 't', 'w', 'y']
+end list is ['e', 'q', 'r', 't', 'w', 'y']
