@@ -24,7 +24,33 @@
 
     \begin{frame}
         \frametitle{Why would we ever want to sort anything?}
+        \LARGE Sorting: arranging objects in some sort of order
+        \normalsize
+        \begin{itemize}
+            \item Integers: in numerical order, e.g., 1, 2, 3, 4, 5
+            \item Characters: in alphabetical order, e.g. A, B, C, D, E
+            \item Students: in class rank order
+            \item Movies: in review order, highest to lowest
+            \item Dates: ???
+        \end{itemize}
+    \end{frame}
 
+    \begin{frame}
+        \frametitle{A motivational example}
+        \Large How do you finding a name in a large directory?
+        \normalsize
+        What if the names are not sorted?\\
+        Do you start at the beginning and search until you find the name you are looking for?\\
+        What if there are 1,000,000 names in the directory?\\
+        The complexity of bisection search is $O = \log_2 n$
+        \begin{itemize}
+            \item 4 guesses to find an item in a list of size 10
+            \item 7 guesses  in a list of size 100
+            \item 10 guesses  in a list of size 1000
+            \item 20 guesses  in a list of size 1000000
+            \item 30 guesses  in a list of size 1000000000
+            \item 40 guesses  in a list of size 1000000000000
+        \end{itemize}
     \end{frame}
 
     \begin{frame}
@@ -39,11 +65,11 @@
     \begin{frame}
         \frametitle{Description of QuickSort}
         \begin{enumerate}
-            \item Call the QuickSort() procedure, passing a list as the only parameter.
+            \item Call the QuickSort() procedure, passing a perhaps unsorted list as the only parameter.
             \item Start with the list parameter. Pick one element of the list to be the pivot. (First, last, middle, random --- it doesn't matter.)
             \item Iterate through the list placing all elements less than the pivot on the left and all elements greater than the pivot on the right. (Equal elements can go either on the left, right, or --- in my demonstration --- in the middle.)
             \item Continue the same process for the left and right sides. Call the same procedure passing the left or right side as the parameter. This is the recursive step.
-            \item Stop the recursion when a list has zero or one elements and return the list. This stops the recursion.
+            \item Stop the recursion when a list has one or zero elements and return the list. This stops the recursion.
         \end{enumerate}
     \end{frame}
 
@@ -433,7 +459,7 @@
         \begin{verbatim}
 def quick_sort(arr):
     less = []
-    pivotList = []
+    equal = []
     more = []
     if len(arr) <= 1:
         return arr
@@ -445,10 +471,10 @@ def quick_sort(arr):
             elif i > pivot:
                 more.append(i)
             else:
-                pivotList.append(i)
+                equal.append(i)
         less = quick_sort(less)
         more = quick_sort(more)
-        return less + pivotList + more
+        return less + equal + more
         \end{verbatim}
     \end{frame}
 
@@ -457,11 +483,11 @@ def quick_sort(arr):
         \begin{verbatim}
 def quick_sort(arr):
     less = []
-    pivotList = []
+    equal = []
     more = []
         \end{verbatim}
         \par Declare a function named \textit{quick\_sort} that takes one parameter, a list, which presumably is unsorted.
-        \par Declare a \textit{less} list to hold the lesser-than items, a \textit{more} list to hole the greater-than items, and a \textit{pivotList} to lost the equal-to items.
+        \par Declare a \textit{less} list to hold the lesser-than items, a \textit{more} list to hold the greater-than items, and an \textit{equal} lost to hold the equal-to items.
     \end{frame}
 
     \begin{frame}[fragile]
@@ -480,14 +506,14 @@ def quick_sort(arr):
         \frametitle{Python code}
         \footnotesize
         \begin{verbatim}
-        pivot = arr[(len(arr)-1) // 2]
+        pivot = arr[(len(arr)-1) // 2] #select the middle element
         for i in arr:
             if i < pivot:           
                 less.append(i)
             elif i > pivot:
                 more.append(i)
             else:
-                pivotList.append(i)
+                equal.append(i)
         \end{verbatim}
         \par Select a pivot. It could be the first element (\textit{arr[0]}), the last element (\textit{arr[-1]}), the middle element (\textit{arr[len(arr)-1 // 2]}), or a random element.
         \par Iterate through the parameter list, placing all lesser-than elements on the left, and all greater than elements on the right.
@@ -497,9 +523,12 @@ def quick_sort(arr):
         \frametitle{Python code}
         \footnotesize
         \begin{verbatim}
+        #recursive calls for the right and left lists
         less = quick_sort(less)
         more = quick_sort(more)
-        return less + pivotList + more
+
+        #return the left, middle, and right lists glued together
+        return less + equal + more
         \end{verbatim}
         \par Call the function recursively on the left and right sides, passing each as a parameter. Return the three lists glued together.
     \end{frame}
@@ -514,7 +543,7 @@ calling quick_sort([4, 3, 7, 2, 9, 5, 99, -1])
        for: i = 4 and pivot = 2, i > pivot, more = [4]
        for: i = 3 and pivot = 2, i > pivot, more = [4, 3]
        for: i = 7 and pivot = 2, i > pivot, more = [4, 3, 7]
-       for: i = 2 and pivot = 2, i == pivot, pivotList = [2]
+       for: i = 2 and pivot = 2, i == pivot, equal = [2]
        for: i = 9 and pivot = 2, i > pivot, more = [4, 3, 7, 9]
        for: i = 5 and pivot = 2, i > pivot, more = [4, 3, 7, 9, 5]
        for: i = 99 and pivot = 2, i > pivot, more = [4, 3, 7, 9, 5, 99]
@@ -532,7 +561,7 @@ calling quick_sort([4, 3, 7, 9, 5, 99])
     else branch, list is [4, 3, 7, 9, 5, 99]
        for: i = 4 and pivot = 7, i < pivot, less = [4]
        for: i = 3 and pivot = 7, i < pivot, less = [4, 3]
-       for: i = 7 and pivot = 7, i == pivot, pivotList = [7]
+       for: i = 7 and pivot = 7, i == pivot, equal = [7]
        for: i = 9 and pivot = 7, i > pivot, more = [9]
        for: i = 5 and pivot = 7, i < pivot, less = [4, 3, 5]
        for: i = 99 and pivot = 7, i > pivot, more = [9, 99]
@@ -546,13 +575,13 @@ calling quick_sort([4, 3, 7, 9, 5, 99])
 calling quick_sort([4, 3, 5])
     else branch, list is [4, 3, 5]
        for: i = 4 and pivot = 3, i > pivot, more = [4]
-       for: i = 3 and pivot = 3, i == pivot, pivotList = [3]
+       for: i = 3 and pivot = 3, i == pivot, equal = [3]
        for: i = 5 and pivot = 3, i > pivot, more = [4, 5]
 calling quick_sort([])
     DONE if list length <= 1, returning []
 calling quick_sort([4, 5])
     else branch, list is [4, 5]
-       for: i = 4 and pivot = 4, i == pivot, pivotList = [4]
+       for: i = 4 and pivot = 4, i == pivot, equal = [4]
        for: i = 5 and pivot = 4, i > pivot, more = [5]
 calling quick_sort([])
     DONE if list length <= 1, returning []
@@ -569,7 +598,7 @@ calling quick_sort([5])
 <<<returning [] + [3] + [4, 5]
 calling quick_sort([9, 99])
     else branch, list is [9, 99]
-       for: i = 9 and pivot = 9, i == pivot, pivotList = [9]
+       for: i = 9 and pivot = 9, i == pivot, equal = [9]
        for: i = 99 and pivot = 9, i > pivot, more = [99]
 calling quick_sort([])
     DONE if list length <= 1, returning []
@@ -591,7 +620,7 @@ end list is [-1, 2, 3, 4, 5, 7, 9, 99]
         \frametitle{Time complexity of QuickSort}
         \par Best case
         \begin{equation}
-            O = n \log n
+            O = n \log_2 n
         \end{equation}
         \par Worst case
         \begin{equation}
@@ -600,15 +629,15 @@ end list is [-1, 2, 3, 4, 5, 7, 9, 99]
 
     \end{frame}
 
-    \begin{frame}
-        \frametitle{History of QuickSort}
-
-    \end{frame}
-
-    \begin{frame}
-        \frametitle{Alternatives to QuickSort}
-
-    \end{frame}
+%    \begin{frame}
+%        \frametitle{History of QuickSort}
+%
+%    \end{frame}
+%
+%    \begin{frame}
+%        \frametitle{Alternatives to QuickSort}
+%
+%    \end{frame}
 
     \begin{frame}
         \frametitle{Questions}

@@ -20,7 +20,7 @@ if (len(sys.argv) > 1):
 def quick_sort(arr):
     if DEBUG: print(f"calling quick_sort({arr})")
     less = []
-    pivotList = []
+    equal = []
     more = []
     if len(arr) <= 1:
         if DEBUG: print(f"    DONE if list length <= 1, returning {arr}")
@@ -37,12 +37,12 @@ def quick_sort(arr):
                 more.append(i)
                 if DEBUG: print(f" i > pivot, more = {more}")
             else:
-                pivotList.append(i)
-                if DEBUG: print(f" i == pivot, pivotList = {pivotList}")
+                equal.append(i)
+                if DEBUG: print(f" i == pivot, equal = {equal}")
         less = quick_sort(less)
         more = quick_sort(more)
-        if DEBUG: print(f"<<<returning {less} + {pivotList} + {more}")
-        return less + pivotList + more
+        if DEBUG: print(f"<<<returning {less} + {equal} + {more}")
+        return less + equal + more
    
 ###testing quicksort implementation### 
 if __name__ == '__main__':
