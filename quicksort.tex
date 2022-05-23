@@ -54,6 +54,17 @@
     \end{frame}
 
     \begin{frame}
+        \frametitle{Conceptual View of QuickSort}
+        \begin{itemize}
+            \item A list of length 0 or 1 is ``sorted.'' Why?
+            \item A list of length greater than 1 can be split in the ``middle'' and each ``half'' can be sorted. Why?
+            \item Sorted lists can be combined (in order) to form a sorted list. Why?
+        \end{itemize}
+        \par \Large [] and [42] are both sorted lists.
+        \par \Large [1, 2, 3] + [4, 6, 8] + [10, 20, 30] is a sorted list.
+    \end{frame}
+
+    \begin{frame}
         \frametitle{Brief Description of QuickSort}
         \begin{itemize}
             \item QuickSort is a recursive algorithm based on the ``divide and conquer'' technique. It works by placing the ``middle'' element in the proper place, i.e., in the ``middle'', and then doing the same thing for the left and right halves. This ``middle'' element is known as the \textbf{PIVOT}.
