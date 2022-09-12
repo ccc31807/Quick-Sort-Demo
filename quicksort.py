@@ -51,7 +51,7 @@ if __name__ == '__main__':
     x1 = quick_sort(x)
     print(f"end list is {x1}")
     print()
-    #y = list('Hello World!')
+
     y = list('qwerty')
     print(f"initial list is {y}")
     y1 = quick_sort(y)

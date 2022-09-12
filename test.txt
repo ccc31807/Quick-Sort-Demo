@@ -1,0 +1,92 @@
+DEBUG is TRUE
+initial list is [4, 3, 7, 2, 9, 5, 99, -1]
+calling merge_sort([4, 3, 7, 2, 9, 5, 99, -1])
+middle index is 4, middle element is 9
+2. [4, 3, 7, 2]
+3. [9, 5, 99, -1]
+calling merge_sort([4, 3, 7, 2])
+middle index is 2, middle element is 7
+2. [4, 3]
+3. [7, 2]
+calling merge_sort([4, 3])
+middle index is 1, middle element is 3
+2. [4]
+3. [3]
+calling merge_sort([4])
+calling merge_sort([3])
+     merging Left and Right
+     merged array so far is f[3, 4]
+calling merge_sort([7, 2])
+middle index is 1, middle element is 2
+2. [7]
+3. [2]
+calling merge_sort([7])
+calling merge_sort([2])
+     merging Left and Right
+     merged array so far is f[2, 7]
+     merging Left and Right
+     merged array so far is f[2, 3, 4, 7]
+calling merge_sort([9, 5, 99, -1])
+middle index is 2, middle element is 99
+2. [9, 5]
+3. [99, -1]
+calling merge_sort([9, 5])
+middle index is 1, middle element is 5
+2. [9]
+3. [5]
+calling merge_sort([9])
+calling merge_sort([5])
+     merging Left and Right
+     merged array so far is f[5, 9]
+calling merge_sort([99, -1])
+middle index is 1, middle element is -1
+2. [99]
+3. [-1]
+calling merge_sort([99])
+calling merge_sort([-1])
+     merging Left and Right
+     merged array so far is f[-1, 99]
+     merging Left and Right
+     merged array so far is f[-1, 5, 9, 99]
+     merging Left and Right
+     merged array so far is f[-1, 2, 3, 4, 5, 7, 9, 99]
+end list is [-1, 2, 3, 4, 5, 7, 9, 99]
+
+initial list is ['q', 'w', 'e', 'r', 't', 'y']
+calling merge_sort(['q', 'w', 'e', 'r', 't', 'y'])
+middle index is 3, middle element is r
+2. ['q', 'w', 'e']
+3. ['r', 't', 'y']
+calling merge_sort(['q', 'w', 'e'])
+middle index is 1, middle element is w
+2. ['q']
+3. ['w', 'e']
+calling merge_sort(['q'])
+calling merge_sort(['w', 'e'])
+middle index is 1, middle element is e
+2. ['w']
+3. ['e']
+calling merge_sort(['w'])
+calling merge_sort(['e'])
+     merging Left and Right
+     merged array so far is f['e', 'w']
+     merging Left and Right
+     merged array so far is f['e', 'q', 'w']
+calling merge_sort(['r', 't', 'y'])
+middle index is 1, middle element is t
+2. ['r']
+3. ['t', 'y']
+calling merge_sort(['r'])
+calling merge_sort(['t', 'y'])
+middle index is 1, middle element is y
+2. ['t']
+3. ['y']
+calling merge_sort(['t'])
+calling merge_sort(['y'])
+     merging Left and Right
+     merged array so far is f['t', 'y']
+     merging Left and Right
+     merged array so far is f['r', 't', 'y']
+     merging Left and Right
+     merged array so far is f['e', 'q', 'r', 't', 'w', 'y']
+end list is ['e', 'q', 'r', 't', 'w', 'y']
