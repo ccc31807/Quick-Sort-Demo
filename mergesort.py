@@ -61,11 +61,6 @@ def merge_sort(array):
         if DEBUG: print(f"     merged array so far is f{array}")
 
 
-# Print the array
-def printList(array):
-    for i in range(len(array)):
-        print(array[i], end=" ")
-    print()
 
 
 # Driver program
@@ -80,14 +75,3 @@ if __name__ == '__main__':
     print(f"initial list is {y}")
     merge_sort(y)
     print(f"end list is {y}")
-    
-#    array = [6, 5, 12, 10, 9, 1]
-#    print("Unsorted array is: ")
-#    printList(array)
-#
-#
-#    mergeSort(array)
-#
-#    print("Sorted array is: ")
-#    printList(array)
-
